@@ -1,8 +1,9 @@
 FROM registry.access.redhat.com/ubi8/nginx-120
+USER root
 
 COPY ./nginx.conf /etc/nginx/nginx.conf
+ENV APP_MODULE /code
 
-USER root
 
 RUN yum install -y --disableplugin=subscription-manager python3 && \
     yum install -y --disableplugin=subscription-manager python3-pip && \
